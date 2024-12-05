@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import globe from "../assets/globe.svg";
 import earth from "../assets/Earth.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
   const links = (
     <>
       <li>
@@ -65,7 +67,36 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user && user?.email ? (
+          <>
+            <div className="flex items-center relative">
+              <div className="">
+                <img
+                  className="w-10 rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />{" "}
+              </div>
+
+              <div className="opacity-0 hover:opacity-100 absolute right-5">
+                <div className="flex  items-center">
+                  <p>{user.displayName}</p>
+                  <button
+                    className="btn btn-neutral rounded-xl"
+                    onClick={logout}
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <Link className="btn btn-neutral" to="/login">
+            Log In
+          </Link>
+        )}
+        {/* <a className="btn">Button</a> */}
       </div>
     </div>
   );
