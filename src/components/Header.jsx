@@ -31,9 +31,9 @@ const Header = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-sky-700 text-white   ">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ const Header = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2  shadow bg-sky-700 text-white"
           >
             {links}
           </ul>
@@ -61,7 +61,7 @@ const Header = () => {
           <img src={earth} className="w-10" alt="" /> Visa Navigator
         </a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden  lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">

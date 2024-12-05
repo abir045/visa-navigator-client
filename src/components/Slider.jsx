@@ -14,9 +14,46 @@ import hall from "../assets/hall.jpg";
 import china from "../assets/china.jpg";
 import dark from "../assets/dark.jpg";
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        // background: "red",
+        position: "absolute",
+        right: "5%",
+        scale: "2",
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        position: "absolute",
+        left: "5%",
+        zIndex: "10",
+        fontSize: "38",
+        scale: "2",
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
 const SliderImg = () => {
   const settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -24,13 +61,15 @@ const SliderImg = () => {
     arrows: true,
     autoplay: true,
     fade: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
 
   return (
-    <div className="slider-container p-3 mb-10">
+    <div className="slider-container pr-2 pl-2 pb-2 mb-10">
       <Slider {...settings}>
         <div className="rounded-xl relative">
-          <img className="w-full h-[600px] rounded-xl" src={passport} alt="" />
+          <img className="w-full h-[600px] rounded-xl " src={passport} alt="" />
           <h3 className="absolute oswald text-6xl font-bold text-gray-800 top-24  left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             Immigration Visa Consulting
           </h3>

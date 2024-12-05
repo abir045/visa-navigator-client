@@ -5,6 +5,8 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import Home from "./pages/Home.jsx";
+import AddVisa from "./pages/AddVisa.jsx";
+import AllVisa from "./components/AllVisa.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("http://localhost:5000/visa"),
+      },
+      {
+        path: "/addvisa",
+        element: <AddVisa />,
+      },
+      {
+        path: "/allvisas",
+        element: <AllVisa />,
+        loader: () => fetch("http://localhost:5000/visa"),
       },
     ],
   },
