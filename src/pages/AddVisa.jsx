@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddVisa = () => {
+  const { user } = useContext(AuthContext);
+
+  const email = user.email;
+
   const handleAddVisa = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -27,6 +32,7 @@ const AddVisa = () => {
       fee,
       validity,
       application,
+      email,
     };
 
     console.log(newVisa);

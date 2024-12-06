@@ -1,25 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const VisaCard = ({ visa }) => {
-  const {
-    countryImage,
-    country,
-    visaType,
-    processingTime,
-    requiredDocuments,
-    description,
-    age,
-    fee,
-    validity,
-    application,
-  } = visa;
+const VisaDetailsCard = ({ visas }) => {
+  console.log(visas);
   return (
     <div>
       <div className="card bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <img
-            src={countryImage}
+            src={visas.countryImage}
             alt="Shoes"
             className="rounded-xl w-full h-[200px]"
           />
@@ -42,4 +30,4 @@ const VisaCard = ({ visa }) => {
   );
 };
 
-export default VisaCard;
+export default VisaDetailsCard;
