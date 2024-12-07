@@ -104,6 +104,9 @@ const VisaDetails = () => {
             icon: "success",
             confirmButtonText: "Cool",
           });
+          //close modal
+          const modal = document.getElementById("my_modal_4");
+          modal.close();
         }
       });
   };
@@ -124,12 +127,22 @@ const VisaDetails = () => {
           />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title">{country}</h2>
-          <p>{visaType}</p>
+          <h2 className="card-title font-bold">{country}</h2>
+          <p className="font-semibold">{visaType}</p>
           <p>Processing Time: {processingTime}</p>
           <p>Fee: {fee} $</p>
           <p>Validity: {validity}</p>
           <p>Application Method: {application}</p>
+          <p>Description: {description}</p>
+          <p className="font-bold">
+            Required Documents: {/* <ul className="font-semibold"> */}
+            {requiredDocuments.map((doc) => (
+              <li>{doc}</li>
+            ))}
+            {/* </ul> */}
+          </p>
+
+          <p>Age Restriction: {age}</p>
           <div className="card-actions">
             <button
               onClick={() => document.getElementById("my_modal_4").showModal()}
@@ -215,15 +228,12 @@ const VisaDetails = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button type="" className="btn btn-neutral">
-                  Apply
-                </button>
+                <div className="modal-action" method="dialog">
+                  <button type="submit" className="btn btn-neutral">
+                    Apply
+                  </button>
+                </div>
               </div>
-            </form>
-          </div>
-          <div className="modal-action">
-            <form method="dialog">
-              <button className="btn">Close</button>
             </form>
           </div>
         </div>

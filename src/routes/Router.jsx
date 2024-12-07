@@ -6,6 +6,9 @@ import AllVisa from "../components/AllVisa";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import VisaDetails from "../pages/VisaDetails";
+import MyAddedVisa from "../pages/MyAddedVisa";
+import PrivateRoute from "./PrivateRoute";
+import UpdateVisa from "../components/UpdateVisa";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +22,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/addvisa",
-        element: <AddVisa />,
+
+        element: (
+          <PrivateRoute>
+            {" "}
+            <AddVisa />{" "}
+          </PrivateRoute>
+        ),
       },
       {
         path: "/allvisas",
@@ -28,10 +37,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/visa/:id",
-        element: <VisaDetails />,
+        element: (
+          <PrivateRoute>
+            <VisaDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) => {
           fetch(`http://localhost:5000/visa/${params.id}`);
         },
+      },
+      {
+        path: "/myaddedvisas",
+        element: <MyAddedVisa />,
+        loader: () => fetch("http://localhost:5000/visa"),
       },
 
       {

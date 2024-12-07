@@ -10,16 +10,29 @@ const AddVisa = () => {
   const handleAddVisa = (e) => {
     e.preventDefault();
     const form = e.target;
+
     const countryImage = form.countryImage.value;
     const country = form.country.value;
     const visaType = form.visaType.value;
     const processingTime = form.processingTime.value;
-    const requiredDocuments = form.requiredDocuments.value;
+    // const requiredDocuments = form.requiredDocuments.value;
     const description = form.description.value;
     const age = form.age.value;
     const fee = form.fee.value;
     const validity = form.validity.value;
     const application = form.application.value;
+
+    const requiredDocuments = [
+      form.querySelector('input[name="passport"]:checked')
+        ? "Valid Passport"
+        : null,
+      form.querySelector('input[name="visaForm"]:checked')
+        ? "Visa Application form"
+        : null,
+      form.querySelector('input[name="photograph"]:checked')
+        ? "Recent Passport-sized photograph"
+        : null,
+    ].filter((doc) => doc !== null);
 
     const newVisa = {
       countryImage,
@@ -118,7 +131,32 @@ const AddVisa = () => {
             />
           </div>
 
-          <select
+          {/* checkbox */}
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Required documents?</span>
+            </label>
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" name="passport" className="checkbox" />
+                <span className="label-text">Valid Passport</span>
+              </label>
+
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" name="visaForm" className="checkbox" />
+                <span className="label-text">Visa Application form</span>
+              </label>
+
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" name="photograph" className="checkbox" />
+                <span className="label-text">
+                  Recent Passport-sized photograph
+                </span>
+              </label>
+            </div>
+          </div>
+
+          {/* <select
             className="select select-bordered w-full max-w-xs"
             name="requiredDocuments"
           >
@@ -128,7 +166,7 @@ const AddVisa = () => {
             <option>Valid Passport</option>
             <option>Visa Application form</option>
             <option>Recent Passport-sized photograph</option>
-          </select>
+          </select> */}
 
           <div className="form-control">
             <label className="label">
