@@ -9,6 +9,7 @@ import VisaDetails from "../pages/VisaDetails";
 import MyAddedVisa from "../pages/MyAddedVisa";
 import PrivateRoute from "./PrivateRoute";
 import UpdateVisa from "../components/UpdateVisa";
+import MyVisaApplication from "../pages/MyVisaApplication";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         path: "/myaddedvisas",
         element: <MyAddedVisa />,
         loader: () => fetch("http://localhost:5000/visa"),
+      },
+      {
+        path: "/myvisaapplication",
+        element: <MyVisaApplication />,
       },
 
       {

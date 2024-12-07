@@ -12,6 +12,8 @@ const MyAddedVisa = () => {
 
   const myAddedVisas = loadedVisas.filter((visa) => visa.email === user?.email);
 
+  const [shownVisas, setShownVisas] = useState(myAddedVisas);
+
   console.log(myAddedVisas);
 
   const handleOpenUpdateModal = (visa) => {
@@ -86,16 +88,47 @@ const MyAddedVisa = () => {
       });
   };
 
+  // delete function
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/visa/${_id}`, { method: "DELETE" })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your added visa has been deleted.",
+                icon: "success",
+              });
+              const remaining = myAddedVisas.filter((visa) => visa._id !== _id);
+              setShownVisas(remaining);
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       {" "}
       <h2>My added Visa</h2>
       <div>
-        {myAddedVisas.map((visa) => (
+        {shownVisas.map((visa) => (
           <VisaCard
             key={visa._id}
             visa={visa}
             handleOpenUpdateModal={handleOpenUpdateModal}
+            handleDelete={handleDelete}
           />
         ))}
       </div>

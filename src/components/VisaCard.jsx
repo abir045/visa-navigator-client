@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const VisaCard = ({ visa, handleOpenUpdateModal }) => {
+const VisaCard = ({ visa, handleOpenUpdateModal, handleDelete }) => {
   const {
     countryImage,
     country,
@@ -13,6 +13,10 @@ const VisaCard = ({ visa, handleOpenUpdateModal }) => {
     fee,
     validity,
     application,
+    _id,
+    currenDate,
+    name,
+    email,
   } = visa;
 
   const { pathname } = useLocation();
@@ -35,6 +39,15 @@ const VisaCard = ({ visa, handleOpenUpdateModal }) => {
           <p>Validity: {validity}</p>
           <p>Application Method: {application}</p>
 
+          {pathname === "/myvisaapplication" && (
+            <div className="flex flex-col gap-4">
+              <p>Applied_date: {currenDate}</p>
+              <p>Name: {name}</p>
+              <p>Email: {email}</p>
+              <button className="btn btn-neutral my-5">Cancel</button>
+            </div>
+          )}
+
           {pathname === "/myaddedvisas" && (
             <div className="flex items-center gap-4 my-5">
               <div>
@@ -46,7 +59,12 @@ const VisaCard = ({ visa, handleOpenUpdateModal }) => {
                 </button>
               </div>
               <div>
-                <button className="btn btn-neutral">Delete</button>
+                <button
+                  onClick={() => handleDelete(_id)}
+                  className="btn btn-neutral"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           )}

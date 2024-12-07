@@ -4,6 +4,7 @@ import VisaDetailsCard from "../components/VisaDetailsCard";
 import { AuthContext } from "../provider/AuthProvider";
 import moment from "moment";
 import Swal from "sweetalert2";
+import Loading from "./Loading";
 
 const VisaDetails = () => {
   //   const visa = useLoaderData();
@@ -46,7 +47,7 @@ const VisaDetails = () => {
   }, [id]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (error) {
