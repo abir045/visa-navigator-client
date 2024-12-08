@@ -23,12 +23,12 @@ const Header = () => {
       <li>
         <NavLink to="/myvisaapplication">My Visa Applications</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/login">Login</NavLink>
-      </li>
-      <li>
+      </li> */}
+      {/* <li>
         <NavLink to="/register">Register</NavLink>
-      </li>
+      </li> */}
     </>
   );
 
@@ -92,9 +92,15 @@ const Header = () => {
             </div>
           </>
         ) : (
-          <Link className="btn btn-neutral" to="/login">
-            Log In
-          </Link>
+          <div className="flex gap-1">
+            <Link className="btn btn-sm" to="/login">
+              Log In
+            </Link>
+
+            <Link className="btn btn-sm" to="/register">
+              Register
+            </Link>
+          </div>
         )}
         {/* <a className="btn">Button</a> */}
       </div>
