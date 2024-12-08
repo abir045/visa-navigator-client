@@ -8,6 +8,9 @@ const MyVisaApplication = () => {
   const { user } = useContext(AuthContext);
 
   const [applications, setApplications] = useState([]);
+  // const [filteredApplications, setFilteredApplications] = useState([]);
+  const [displayApplications, setDisplayApplications] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
 
   const email = user?.email;
@@ -21,6 +24,7 @@ const MyVisaApplication = () => {
         const data = await response.json();
         console.log(data);
         setApplications(data);
+        setDisplayApplications(data);
       } catch (error) {
         console.log("Error fetching applications:", error);
       } finally {
@@ -57,10 +61,28 @@ const MyVisaApplication = () => {
               });
               const remaining = applications.filter((visa) => visa._id !== _id);
               setApplications(remaining);
+              setDisplayApplications(remaining);
             }
           });
       }
     });
+  };
+
+  const handleSearchTermChange = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+
+    // If search term is empty, reset to all applications
+    if (term === "") {
+      setDisplayApplications(applications);
+    }
+  };
+
+  const handleSearch = () => {
+    const filtered = applications.filter((visa) =>
+      visa.country.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setDisplayApplications(filtered);
   };
 
   return (
@@ -68,8 +90,24 @@ const MyVisaApplication = () => {
       <h2 className="text-center oswald font-bold text-3xl my-5">
         My application
       </h2>
-      <div>
-        {applications.map((visa) => (
+
+      {/* search functions */}
+      <div className="flex justify-center mb-5">
+        <div className="flex w-full max-w-md">
+          <input
+            type="text"
+            placeholder="Search by country"
+            className="input input-bordered w-full mr-2 "
+            value={searchTerm}
+            onChange={handleSearchTermChange}
+          />
+          <button className="btn btn-neutral" onClick={handleSearch}>
+            Search
+          </button>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+        {displayApplications.map((visa) => (
           <VisaCard
             key={visa._id}
             handleDeleteApplication={handleDeleteApplication}
