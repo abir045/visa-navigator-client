@@ -5,8 +5,6 @@ import VisaCard from "../components/VisaCard";
 import Swal from "sweetalert2";
 
 const MyAddedVisa = () => {
-  const [loading, setLoading] = useState(true);
-
   const { user } = useContext(AuthContext);
   const loadedVisas = useLoaderData();
   const [selectedVisa, setSelectedVisa] = useState(null);
