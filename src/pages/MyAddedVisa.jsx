@@ -3,7 +3,8 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import VisaCard from "../components/VisaCard";
 import Swal from "sweetalert2";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const MyAddedVisa = () => {
   const { user } = useContext(AuthContext);
   const loadedVisas = useLoaderData();
@@ -104,7 +105,8 @@ const MyAddedVisa = () => {
           const modal = document.getElementById("my_modal_5");
           modal.close();
           // fetchVisaApplications();
-          navigate("/");
+          // navigate("/");
+          fetchVisas();
         }
       });
   };
@@ -139,6 +141,19 @@ const MyAddedVisa = () => {
           });
       }
     });
+  };
+
+  const fetchVisas = async () => {
+    try {
+      const response = await fetch(
+        "https://visa-navigator-server-three.vercel.app/visa"
+      );
+      const data = await response.json();
+      const filteredVisas = data.filter((visa) => visa.email === user?.email);
+      setShownVisas(filteredVisas);
+    } catch (error) {
+      toast.error(error.message || "Failed to register , Please try again");
+    }
   };
 
   return (
@@ -344,6 +359,7 @@ const MyAddedVisa = () => {
           </div>
         </div>
       </dialog>
+      <ToastContainer />
     </div>
   );
 };
