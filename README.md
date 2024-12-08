@@ -1,8 +1,15 @@
-# React + Vite
+# Visa Navigator Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Link
 
-Currently, two official plugins are available:
+- https://visa-navigator-d10af.web.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- A user can choose to Browse through different visa categories on the home page
+- A user can see details of a visa by register and log in.
+- A user can add visa if logged in.
+- A user can update and delete his created visa if logged in.
+- A user can apply to a visa if logged in.
+- A user can track his/her applications on my visa applications page.
+- A user can see all visa's on the all visa page.

@@ -5,12 +5,13 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { FaMoon } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa";
 
 const Header = () => {
   const [dark, setDark] = useState(false);
   const { user, logout } = useContext(AuthContext);
 
-  console.log(user?.photoURL);
+  // console.log(user);
 
   const darkModeHandler = () => {
     setDark(!dark);
@@ -94,7 +95,7 @@ const Header = () => {
                   className="w-10 rounded-full"
                   src={user?.photoURL}
                   alt=""
-                />{" "}
+                />
               </div>
 
               <div className="opacity-0 hover:opacity-100 absolute right-[50%]">
