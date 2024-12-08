@@ -43,7 +43,7 @@ const Header = () => {
         {dark && <MdOutlineWbSunny size={20} />}
         {!dark && <FaMoon />}
       </button>
-      {/* <li>
+      {/* <li className="ml-5">
         <NavLink to="/login">Login</NavLink>
       </li> */}
       {/* <li>
@@ -93,7 +93,7 @@ const Header = () => {
               <div className="">
                 <img
                   className="w-10 rounded-full"
-                  src={user?.photoURL}
+                  src={user?.photoURL || <FaRegUser />}
                   alt=""
                 />
               </div>

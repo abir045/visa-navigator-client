@@ -38,7 +38,7 @@ const Register = () => {
         setUser(user);
         updateUserProfile({ displayName: name, photoURL: photo })
           .then(() => {
-            navigate("/");
+            navigate("/login");
           })
           .catch((err) => {
             toast.error(err.message || "Failed to register, Please try again");
