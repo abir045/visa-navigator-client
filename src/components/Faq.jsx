@@ -3,7 +3,7 @@ import flags from "../assets/flags.jpg";
 
 const Faq = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 mt-32 gap-10 my-10">
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 mt-32 gap-10  pb-10 ">
       <div>
         <h1 className="text-center text-3xl font-bold oswald">
           Common questions answered
@@ -18,8 +18,8 @@ const Faq = () => {
       </div>
 
       {/* accordion */}
-      <div>
-        <div className="collapse collapse-plus bg-base-200">
+      <div className="dark:bg-gray-900 dark:text-white rounded ">
+        <div className="collapse collapse-plus ">
           <input type="radio" name="my-accordion-3" defaultChecked />
           <div className="collapse-title text-xl font-medium">
             What services do you offer?
@@ -35,7 +35,7 @@ const Faq = () => {
             <li>Transparency and Communication</li>
           </div>
         </div>
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus ">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             What is the consultation process like?
@@ -51,7 +51,7 @@ const Faq = () => {
             <li>Transparency and Communication</li>
           </div>
         </div>
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus ">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             How much do your services cost?
@@ -65,7 +65,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus ">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             How do I get started with your services?
@@ -83,7 +83,7 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className="collapse collapse-plus bg-base-200">
+        <div className="collapse collapse-plus ">
           <input type="radio" name="my-accordion-3" />
           <div className="collapse-title text-xl font-medium">
             What is your success rate with visa applications?

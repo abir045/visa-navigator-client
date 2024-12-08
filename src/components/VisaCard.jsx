@@ -28,7 +28,7 @@ const VisaCard = ({
   // console.log(pathname);
   return (
     <div>
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-xl dark:bg-gray-800 dark:text-white">
         <figure className="px-10 pt-10">
           <img
             src={countryImage}

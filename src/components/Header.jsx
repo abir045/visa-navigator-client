@@ -1,11 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import globe from "../assets/globe.svg";
 import earth from "../assets/Earth.png";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { MdOutlineWbSunny } from "react-icons/md";
+import { FaMoon } from "react-icons/fa";
 
 const Header = () => {
+  const [dark, setDark] = useState(false);
   const { user, logout } = useContext(AuthContext);
+
+  const darkModeHandler = () => {
+    setDark(!dark);
+    document.body.classList.toggle("dark");
+  };
+
   const links = (
     <>
       <li>
@@ -23,6 +32,14 @@ const Header = () => {
       <li>
         <NavLink to="/myvisaapplication">My Visa Applications</NavLink>
       </li>
+
+      <button
+        className="flex items-center ml-3 my-2"
+        onClick={() => darkModeHandler()}
+      >
+        {dark && <MdOutlineWbSunny size={20} />}
+        {!dark && <FaMoon />}
+      </button>
       {/* <li>
         <NavLink to="/login">Login</NavLink>
       </li> */}
@@ -33,7 +50,7 @@ const Header = () => {
   );
 
   return (
-    <div className="navbar bg-sky-700 text-white   ">
+    <div className="navbar bg-sky-700 text-white dark:bg-gray-900 dark:text-white   ">
       <div className="navbar-start">
         <div className="dropdown ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
