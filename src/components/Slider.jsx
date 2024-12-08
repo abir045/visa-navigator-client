@@ -13,6 +13,7 @@ import study from "../assets/study.jpg";
 import hall from "../assets/hall.jpg";
 import china from "../assets/china.jpg";
 import dark from "../assets/dark.jpg";
+import { Typewriter } from "react-simple-typewriter";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -71,19 +72,46 @@ const SliderImg = () => {
         <div className="rounded-xl relative">
           <img className="w-full h-[600px] rounded-xl " src={passport} alt="" />
           <h3 className="absolute oswald text-6xl font-bold text-gray-800 top-24  left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            Immigration Visa Consulting
+            {/* Immigration Visa Consulting */}
+            <Typewriter
+              words={["Immigration Visa Consulting"]}
+              loop={true} // Loops the animation
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
           </h3>
         </div>
         <div className="relative">
           <img className="w-full h-[600px] rounded-xl" src={china} alt="" />
           <h3 className="absolute oswald text-6xl font-bold top-24 text-white mx-auto  left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            Tourist Visa Application
+            {/* Tourist Visa Application */}
+            <Typewriter
+              words={["Tourist Visa Application"]}
+              loop={true} // Loops the animation
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
           </h3>
         </div>
         <div className="relative">
           <img className="w-full h-[600px] rounded-xl" src={dark} alt="" />
           <h3 className="absolute oswald text-6xl font-bold top-24 text-white mx-auto  left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            Student Visa Advising
+            {/* Student Visa Advising */}
+            <Typewriter
+              words={["Student Visa Advising"]}
+              loop={true} // Loops the animation
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
           </h3>
         </div>
         {/* <div>

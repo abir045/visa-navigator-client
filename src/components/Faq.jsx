@@ -8,10 +8,10 @@ const Faq = () => {
       <Slide direction="left">
         <div>
           <h1 className="text-center text-3xl font-bold oswald">
-            Common questions answered
+            Frequently Asked Questions
           </h1>
 
-          <h4 className="text-xl mt-5 text-center font-semibold mb-10">
+          <h4 className="text-xl mt-5 text-center font-semibold mb-10 w-1/2 mx-auto">
             At the heart of our commitment to providing exceptional immigration
             solutions stands our trusted services.
           </h4>
@@ -22,7 +22,7 @@ const Faq = () => {
 
       {/* accordion */}
       <Slide direction="right">
-        <div className="dark:bg-gray-900 dark:text-white rounded ">
+        <div className="dark:bg-gray-900 dark:text-white rounded px-5">
           <div className="collapse collapse-plus ">
             <input type="radio" name="my-accordion-3" defaultChecked />
             <div className="collapse-title text-xl font-medium">
