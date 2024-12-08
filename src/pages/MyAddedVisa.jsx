@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import VisaCard from "../components/VisaCard";
 import Swal from "sweetalert2";
 
 const MyAddedVisa = () => {
+  const [loading, setLoading] = useState(true);
+
   const { user } = useContext(AuthContext);
   const loadedVisas = useLoaderData();
   const [selectedVisa, setSelectedVisa] = useState(null);
@@ -15,6 +17,7 @@ const MyAddedVisa = () => {
   const [shownVisas, setShownVisas] = useState(myAddedVisas);
 
   //console.log(myAddedVisas);
+  const navigate = useNavigate();
 
   const handleOpenUpdateModal = (visa) => {
     setSelectedVisa(visa);
@@ -47,6 +50,24 @@ const MyAddedVisa = () => {
         ? "Recent Passport-sized photograph"
         : null,
     ].filter((doc) => doc !== null);
+
+    // const fetchVisaApplications = async () => {
+    //   try {
+    //     setLoading(true);
+    //     const response = await fetch(
+    //       `https://visa-navigator-server-three.vercel.app/visa"`
+    //     );
+
+    //     const data = await response.json();
+    //     setShownVisas(data);
+
+    //   } catch (error) {
+
+    //     toast.error(error.message || "Failed to fetch , Please try again");
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
 
     const updatedVisa = {
       countryImage,
@@ -84,6 +105,8 @@ const MyAddedVisa = () => {
 
           const modal = document.getElementById("my_modal_5");
           modal.close();
+          // fetchVisaApplications();
+          navigate("/");
         }
       });
   };
