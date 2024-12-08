@@ -14,7 +14,7 @@ const MyAddedVisa = () => {
 
   const [shownVisas, setShownVisas] = useState(myAddedVisas);
 
-  console.log(myAddedVisas);
+  //console.log(myAddedVisas);
 
   const handleOpenUpdateModal = (visa) => {
     setSelectedVisa(visa);
@@ -61,7 +61,7 @@ const MyAddedVisa = () => {
       application,
     };
 
-    console.log(updatedVisa);
+    //console.log(updatedVisa);
 
     //send data to server
     fetch(`http://localhost:5000/visa/${selectId}`, {
@@ -73,7 +73,7 @@ const MyAddedVisa = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
@@ -103,7 +103,7 @@ const MyAddedVisa = () => {
         fetch(`http://localhost:5000/visa/${_id}`, { method: "DELETE" })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            //  console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -121,8 +121,8 @@ const MyAddedVisa = () => {
   return (
     <div>
       {" "}
-      <h2>My added Visa</h2>
-      <div>
+      <h2 className="text-center text-3xl oswald my-10">My added Visa</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {shownVisas.map((visa) => (
           <VisaCard
             key={visa._id}

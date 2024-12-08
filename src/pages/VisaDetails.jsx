@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import VisaDetailsCard from "../components/VisaDetailsCard";
+
 import { AuthContext } from "../provider/AuthProvider";
 import moment from "moment";
 import Swal from "sweetalert2";
 import Loading from "./Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const VisaDetails = () => {
   //   const visa = useLoaderData();
@@ -30,14 +32,15 @@ const VisaDetails = () => {
         setIsLoading(true);
         const response = await fetch(`http://localhost:5000/visa/${id}`);
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch visa details");
-        }
+        // if (!response.ok) {
+        //   throw new Error("Failed to fetch visa details");
+        // }
 
         const data = await response.json();
         setVisas(data);
       } catch (err) {
-        setError(err.message);
+        // setError(err.message);
+        toast.error(err.message || "Failed to register , Please try again");
       } finally {
         setIsLoading(false);
       }
@@ -73,7 +76,7 @@ const VisaDetails = () => {
     const firstName = form.firstName.value;
     const lastName = form.lastName.value;
 
-    console.log(firstName, lastName);
+    //console.log(firstName, lastName);
 
     const newApplication = {
       name: firstName + " " + lastName,
@@ -97,7 +100,7 @@ const VisaDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
@@ -112,7 +115,7 @@ const VisaDetails = () => {
       });
   };
 
-  console.log(visas);
+  //console.log(visas);
 
   return (
     <div>
@@ -239,6 +242,7 @@ const VisaDetails = () => {
           </div>
         </div>
       </dialog>
+      <ToastContainer />
     </div>
   );
 };

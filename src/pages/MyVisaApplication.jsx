@@ -3,6 +3,8 @@ import { AuthContext } from "../provider/AuthProvider";
 import Loading from "./Loading";
 import VisaCard from "../components/VisaCard";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MyVisaApplication = () => {
   const { user } = useContext(AuthContext);
@@ -22,11 +24,12 @@ const MyVisaApplication = () => {
         const response = await fetch(`http://localhost:5000/apply/${email}`);
 
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         setApplications(data);
         setDisplayApplications(data);
       } catch (error) {
-        console.log("Error fetching applications:", error);
+        //console.log("Error fetching applications:", error);
+        toast.error(error.message || "Failed to register , Please try again");
       } finally {
         setLoading(false);
       }
@@ -52,7 +55,7 @@ const MyVisaApplication = () => {
         fetch(`http://localhost:5000/apply/${_id}`, { method: "DELETE" })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -115,6 +118,7 @@ const MyVisaApplication = () => {
           />
         ))}
       </div>
+      <ToastContainer />
     </div>
   );
 };

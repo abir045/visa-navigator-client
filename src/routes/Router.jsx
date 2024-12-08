@@ -10,11 +10,13 @@ import MyAddedVisa from "../pages/MyAddedVisa";
 import PrivateRoute from "./PrivateRoute";
 import UpdateVisa from "../components/UpdateVisa";
 import MyVisaApplication from "../pages/MyVisaApplication";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
