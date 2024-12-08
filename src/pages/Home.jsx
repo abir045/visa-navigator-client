@@ -3,6 +3,7 @@ import Slider from "../components/Slider";
 import SliderImg from "../components/Slider";
 import { NavLink, useLoaderData } from "react-router-dom";
 import VisaCard from "../components/VisaCard";
+import Countries from "../components/Countries";
 
 const Home = () => {
   const loadedVisas = useLoaderData();
@@ -31,6 +32,8 @@ const Home = () => {
       >
         See all visas
       </NavLink>
+
+      <Countries />
     </div>
   );
 };

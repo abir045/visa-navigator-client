@@ -1,7 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const VisaCard = ({ visa, handleOpenUpdateModal, handleDelete }) => {
+const VisaCard = ({
+  visa,
+  handleOpenUpdateModal,
+  handleDelete,
+  handleDeleteApplication,
+}) => {
   const {
     countryImage,
     country,
@@ -20,7 +25,7 @@ const VisaCard = ({ visa, handleOpenUpdateModal, handleDelete }) => {
   } = visa;
 
   const { pathname } = useLocation();
-  console.log(pathname);
+  // console.log(pathname);
   return (
     <div>
       <div className="card bg-base-100 shadow-xl">
@@ -44,7 +49,12 @@ const VisaCard = ({ visa, handleOpenUpdateModal, handleDelete }) => {
               <p>Applied_date: {currenDate}</p>
               <p>Name: {name}</p>
               <p>Email: {email}</p>
-              <button className="btn btn-neutral my-5">Cancel</button>
+              <button
+                onClick={() => handleDeleteApplication(_id)}
+                className="btn btn-neutral my-5"
+              >
+                Cancel
+              </button>
             </div>
           )}
 
