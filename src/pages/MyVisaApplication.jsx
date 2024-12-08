@@ -21,7 +21,9 @@ const MyVisaApplication = () => {
     const fetchUserApplications = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/apply/${email}`);
+        const response = await fetch(
+          `https://visa-navigator-server-three.vercel.app/apply/${email}`
+        );
 
         const data = await response.json();
         //console.log(data);
@@ -52,7 +54,9 @@ const MyVisaApplication = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/apply/${_id}`, { method: "DELETE" })
+        fetch(`https://visa-navigator-server-three.vercel.app/apply/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);

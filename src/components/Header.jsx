@@ -10,6 +10,8 @@ const Header = () => {
   const [dark, setDark] = useState(false);
   const { user, logout } = useContext(AuthContext);
 
+  console.log(user?.photoURL);
+
   const darkModeHandler = () => {
     setDark(!dark);
     document.body.classList.toggle("dark");
@@ -95,9 +97,9 @@ const Header = () => {
                 />{" "}
               </div>
 
-              <div className="opacity-0 hover:opacity-100 absolute right-5">
+              <div className="opacity-0 hover:opacity-100 absolute right-[50%]">
                 <div className="flex  items-center">
-                  <p>{user.displayName}</p>
+                  <p>{user?.displayName}</p>
                   <button
                     className="btn btn-neutral rounded-xl"
                     onClick={logout}

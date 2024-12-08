@@ -30,7 +30,9 @@ const VisaDetails = () => {
     const fetchVisaDetails = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:5000/visa/${id}`);
+        const response = await fetch(
+          `https://visa-navigator-server-three.vercel.app/visa/${id}`
+        );
 
         // if (!response.ok) {
         //   throw new Error("Failed to fetch visa details");
@@ -91,7 +93,7 @@ const VisaDetails = () => {
       application,
     };
 
-    fetch("http://localhost:5000/apply", {
+    fetch("https://visa-navigator-server-three.vercel.app/apply", {
       method: "POST",
       headers: {
         "content-type": "application/json",

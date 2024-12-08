@@ -48,11 +48,11 @@ const AddVisa = () => {
       email,
     };
 
-    console.log(newVisa);
+    //console.log(newVisa);
 
     //send data to server and database
 
-    fetch("http://localhost:5000/visa", {
+    fetch("https://visa-navigator-server-three.vercel.app/visa", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -61,7 +61,7 @@ const AddVisa = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",

@@ -64,7 +64,7 @@ const MyAddedVisa = () => {
     //console.log(updatedVisa);
 
     //send data to server
-    fetch(`http://localhost:5000/visa/${selectId}`, {
+    fetch(`https://visa-navigator-server-three.vercel.app/visa/${selectId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -100,7 +100,9 @@ const MyAddedVisa = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/visa/${_id}`, { method: "DELETE" })
+        fetch(`https://visa-navigator-server-three.vercel.app/visa/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             //  console.log(data);
@@ -240,19 +242,6 @@ const MyAddedVisa = () => {
                   </label>
                 </div>
               </div>
-
-              {/* <select
-                className="select select-bordered w-full max-w-xs"
-                name="requiredDocuments"
-                defaultValue={selectedVisa?.requiredDocuments}
-              >
-                <option disabled value="DEFAULT">
-                  Required documents?
-                </option>
-                <option>Valid Passport</option>
-                <option>Visa Application form</option>
-                <option>Recent Passport-sized photograph</option>
-              </select> */}
 
               <div className="form-control">
                 <label className="label">
