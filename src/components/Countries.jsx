@@ -8,6 +8,7 @@ import uk from "../assets/uk.jpg";
 import aus from "../assets/australia.jpg";
 import thai from "../assets/thailand.jpg";
 import { Fade } from "react-awesome-reveal";
+import { Slide } from "react-awesome-reveal";
 
 const Coutries = () => {
   return (

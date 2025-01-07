@@ -19,7 +19,7 @@ const AllVisa = () => {
 
   return (
     <div>
-      <h3 className="text-center text-4xl my-10 oswald">All Visa's</h3>
+      <h3 className="text-center text-4xl pt-32 oswald">All Visa's</h3>
 
       <h5 className="text-center my-5 text-2xl font-semibold">
         Filter Visa's by Visa Type

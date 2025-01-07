@@ -159,7 +159,7 @@ const MyAddedVisa = () => {
   return (
     <div>
       {" "}
-      <h2 className="text-center text-3xl oswald my-10">My added Visa</h2>
+      <h2 className="text-center text-3xl oswald pt-32">My added Visa</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {shownVisas.map((visa) => (
           <VisaCard

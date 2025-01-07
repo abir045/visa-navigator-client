@@ -94,12 +94,12 @@ const MyVisaApplication = () => {
 
   return (
     <div>
-      <h2 className="text-center oswald font-bold text-3xl my-5">
+      <h2 className="text-center oswald font-bold text-3xl pt-32">
         My application
       </h2>
 
       {/* search functions */}
-      <div className="flex justify-center mb-5">
+      <div className="flex justify-center mb-5 mt-10">
         <div className="flex w-full max-w-md">
           <input
             type="text"

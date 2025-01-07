@@ -43,9 +43,9 @@ const router = createBrowserRouter([
       {
         path: "/visa/:id",
         element: (
-          <PrivateRoute>
-            <VisaDetails />
-          </PrivateRoute>
+          // <PrivateRoute>
+          <VisaDetails />
+          // </PrivateRoute>
         ),
         loader: ({ params }) => {
           fetch(

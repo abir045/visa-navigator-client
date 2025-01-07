@@ -121,7 +121,7 @@ const VisaDetails = () => {
 
   return (
     <div>
-      <h2 className="text-center my-10 text-3xl font-bol oswald">
+      <h2 className="text-center pt-32 text-3xl font-bol oswald">
         Visa Details
       </h2>
       <div className="card bg-base-100 shadow-xl">
@@ -142,8 +142,8 @@ const VisaDetails = () => {
           <p>Description: {description}</p>
           <p className="font-bold">
             Required Documents: {/* <ul className="font-semibold"> */}
-            {requiredDocuments.map((doc) => (
-              <li>{doc}</li>
+            {requiredDocuments.map((doc, index) => (
+              <li key={index}>{doc}</li>
             ))}
             {/* </ul> */}
           </p>

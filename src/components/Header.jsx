@@ -26,15 +26,23 @@ const Header = () => {
       <li>
         <NavLink to="/allvisas">All Visa's</NavLink>
       </li>
-      <li>
-        <NavLink to="/addvisa">Add Visa</NavLink>
-      </li>
-      <li>
-        <NavLink to="/myaddedvisas">My added visas</NavLink>
-      </li>
-      <li>
-        <NavLink to="/myvisaapplication">My Visa Applications</NavLink>
-      </li>
+
+      {user && user?.email ? (
+        <>
+          {" "}
+          <li>
+            <NavLink to="/addvisa">Add Visa</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myaddedvisas">My added visas</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myvisaapplication">My Visa Applications</NavLink>
+          </li>{" "}
+        </>
+      ) : (
+        ""
+      )}
 
       <button
         className="flex items-center ml-3 my-2"
@@ -53,7 +61,7 @@ const Header = () => {
   );
 
   return (
-    <div className="navbar bg-sky-700 text-white dark:bg-gray-900 dark:text-white   ">
+    <div className="navbar fixed z-10  bg-sky-700 text-white dark:bg-gray-900 dark:text-white   ">
       <div className="navbar-start">
         <div className="dropdown ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
