@@ -20,7 +20,7 @@ const VisaDetails = () => {
 
   const { user } = useContext(AuthContext);
 
-  const email = user.email;
+  const email = user?.email;
 
   const date = moment();
 
@@ -200,7 +200,7 @@ const VisaDetails = () => {
                   name="email"
                   required
                   defaultValue={email}
-                  readOnly
+                  // readOnly
                 />
               </div>
 
