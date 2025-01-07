@@ -10,6 +10,7 @@ const MyAddedVisa = () => {
   const loadedVisas = useLoaderData();
   const [selectedVisa, setSelectedVisa] = useState(null);
   const [selectId, setSelectedId] = useState(null);
+  const [viewType, setViewType] = useState("card");
 
   const myAddedVisas = loadedVisas.filter((visa) => visa.email === user?.email);
 
@@ -17,6 +18,63 @@ const MyAddedVisa = () => {
 
   //console.log(myAddedVisas);
   const navigate = useNavigate();
+
+  //table view  component
+
+  const TableView = () => (
+    <div className="overflow-x-auto  ">
+      <table className="table  w-full ">
+        <thead className="dark:bg-gray-900 dark:text-white">
+          <tr>
+            <th>Country</th>
+            <th>Visa Type</th>
+            <th>Processing Time</th>
+            <th>Fee</th>
+            <th>Validity</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {shownVisas.map((visa) => (
+            <tr key={visa._id}>
+              <td>
+                <div className="flex items-center space-x-3">
+                  <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img src={visa.countryImage} alt={visa.country} />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-bold">{visa.country}</div>
+                  </div>
+                </div>
+              </td>
+              <td>{visa.visaType}</td>
+              <td>{visa.processingTime}</td>
+              <td>${visa.fee}</td>
+              <td>{visa.validity}</td>
+              <td>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => handleOpenUpdateModal(visa)}
+                    className="btn btn-sm btn-neutral"
+                  >
+                    Update
+                  </button>
+                  <button
+                    onClick={() => handleDelete(visa._id)}
+                    className="btn btn-sm btn-neutral"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 
   const handleOpenUpdateModal = (visa) => {
     setSelectedVisa(visa);
@@ -160,16 +218,32 @@ const MyAddedVisa = () => {
     <div className="px-5 dark:bg-gray-900 dark:text-white">
       {" "}
       <h2 className="text-center text-3xl oswald pt-32 mb-10">My added Visa</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10  max-w-7xl mx-auto">
-        {shownVisas.map((visa) => (
-          <VisaCard
-            key={visa._id}
-            visa={visa}
-            handleOpenUpdateModal={handleOpenUpdateModal}
-            handleDelete={handleDelete}
-          />
-        ))}
+      <div className="flex justify-center mb-10">
+        <select
+          className="select select-bordered w-40 dark:bg-gray-900 dark:text-white "
+          value={viewType}
+          onChange={(e) => setViewType(e.target.value)}
+        >
+          <option value="card">Card View</option>
+          <option value="table">Table View</option>
+        </select>
       </div>
+      {viewType === "card" ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10  max-w-7xl mx-auto">
+          {shownVisas.map((visa) => (
+            <VisaCard
+              key={visa._id}
+              visa={visa}
+              handleOpenUpdateModal={handleOpenUpdateModal}
+              handleDelete={handleDelete}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="max-w-7xl mx-auto pb-48">
+          <TableView />
+        </div>
+      )}
       <dialog id="my_modal_5" className="modal">
         <div className="modal-box w-11/12 max-w-5xl dark:text-black">
           <h3 className="font-bold text-lg">Update this Visa</h3>
