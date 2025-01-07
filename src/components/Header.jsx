@@ -26,6 +26,9 @@ const Header = () => {
       <li>
         <NavLink to="/allvisas">All Visa's</NavLink>
       </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
 
       {user && user?.email ? (
         <>
