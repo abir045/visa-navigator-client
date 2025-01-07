@@ -104,7 +104,7 @@ const MyVisaApplication = () => {
           <input
             type="text"
             placeholder="Search by country"
-            className="input input-bordered w-full mr-2 "
+            className="input input-bordered w-full mr-2 dark:bg-gray-900 dark:text-white"
             value={searchTerm}
             onChange={handleSearchTermChange}
           />
