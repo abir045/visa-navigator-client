@@ -67,7 +67,7 @@ const SliderImg = () => {
   };
 
   return (
-    <div className="slider-container pr-2 pl-2 pb-2 mb-10">
+    <div className="slider-container pr-2 pl-2 pb-2 mb-10 pt-16">
       <Slider {...settings}>
         <div className="rounded-xl relative">
           <img className="w-full h-[600px] rounded-xl " src={passport} alt="" />

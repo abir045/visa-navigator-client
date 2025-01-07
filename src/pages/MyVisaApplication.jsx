@@ -93,7 +93,7 @@ const MyVisaApplication = () => {
   };
 
   return (
-    <div className="px-5">
+    <div className="px-5  dark:bg-gray-900 dark:text-white">
       <h2 className="text-center oswald font-bold text-3xl pt-32">
         My application
       </h2>
@@ -113,7 +113,7 @@ const MyVisaApplication = () => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
         {displayApplications.map((visa) => (
           <VisaCard
             key={visa._id}

@@ -18,7 +18,7 @@ const AllVisa = () => {
       : loadedVisas.filter((visa) => visa.visaType === selectedType);
 
   return (
-    <div>
+    <div className="dark:bg-gray-900 dark:text-white">
       <h3 className="text-center text-4xl pt-32 oswald">All Visa's</h3>
 
       <h5 className="text-center my-5 text-2xl font-semibold">
@@ -28,6 +28,7 @@ const AllVisa = () => {
         <select
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value)}
+          className="dark:bg-gray-900 dark:text-white"
         >
           {visaTypes.map((type) => (
             <option key={type} value={type}>
@@ -36,7 +37,7 @@ const AllVisa = () => {
           ))}
         </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5  max-w-6xl px-5 mx-auto my-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5  max-w-6xl px-5 mx-auto pb-10">
         {filteredVisas.map((visa) => (
           <VisaCard key={visa._id} visa={visa} />
         ))}

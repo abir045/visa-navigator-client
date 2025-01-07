@@ -157,10 +157,10 @@ const MyAddedVisa = () => {
   };
 
   return (
-    <div className="px-5">
+    <div className="px-5 dark:bg-gray-900 dark:text-white">
       {" "}
-      <h2 className="text-center text-3xl oswald pt-32">My added Visa</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <h2 className="text-center text-3xl oswald pt-32 mb-10">My added Visa</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10  max-w-7xl mx-auto">
         {shownVisas.map((visa) => (
           <VisaCard
             key={visa._id}
@@ -171,7 +171,7 @@ const MyAddedVisa = () => {
         ))}
       </div>
       <dialog id="my_modal_5" className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
+        <div className="modal-box w-11/12 max-w-5xl dark:text-black">
           <h3 className="font-bold text-lg">Update this Visa</h3>
           <div className="card bg-base-100 w-full max-w-xl shrink-0 shadow-2xl">
             <form onSubmit={handleUpdate} className="card-body">

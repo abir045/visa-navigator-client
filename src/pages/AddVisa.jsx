@@ -75,10 +75,10 @@ const AddVisa = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center mb-10">
-      <h1 className="text-3xl font-bold text-center mt-32">Add Visa </h1>
-      <div className="card bg-base-100 w-full max-w-xl shrink-0 shadow-2xl">
-        <form onSubmit={handleAddVisa} className="card-body">
+    <div className="flex flex-col justify-center items-center pb-10  px-5 dark:bg-gray-900 dark:text-white">
+      <h1 className="text-3xl font-bold text-center mt-32 mb-10">Add Visa </h1>
+      <div className="card bg-base-100 w-full max-w-xl shrink-0 shadow-2xl dark:text-black ">
+        <form onSubmit={handleAddVisa} className="card-body ">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Country Image</span>

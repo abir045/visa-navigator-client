@@ -24,7 +24,7 @@ const Home = () => {
         </h4>
       </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 max-w-7xl mx-auto px-5">
         {showedVisas.map((visa) => (
           <VisaCard key={visa._id} visa={visa} />
         ))}
