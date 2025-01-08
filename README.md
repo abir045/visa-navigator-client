@@ -39,4 +39,4 @@ VITE_projectId
 VITE_storageBucket
 VITE_messagingSenderId
 VITE_appId
-After that load these variables useing dotenv. And you are good to go
+After that load these variables useing dotenv. And you are good to go and hit npm run dev.
